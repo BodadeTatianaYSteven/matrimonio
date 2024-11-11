@@ -1,0 +1,382 @@
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Ajustes globales */
+  body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Estilos para la imagen de fondo */
+  .imagen-fondo {
+    position: fixed; /* Fijo para que cubra toda la ventana */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1; /* Debe estar detrás de todo */
+  }
+  
+  /* Imagen de fondo para escritorio */
+  @media (min-width: 1024px) {
+    .imagen-fondo {
+        background-image: url('images/fotos/foto-marco-desktop.png'); /* Imagen de escritorio */
+    }
+  }
+  
+  /* Imagen de fondo para tablet y móviles */
+  @media (max-width: 1024px) {
+    .imagen-fondo {
+        background-image: url('images/fotos/foto-marco-mobile-large.png'); /* Imagen para móviles y tablets */
+    }
+  }
+  
+  /* Estilo para el marco circular */
+  .marco {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    height: 80vw;
+    max-width: 280px;
+    max-height: 280px;
+    border-radius: 50%;
+    border: 10px solid white;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 2; /* Hacerlo visible*/ 
+  
+  }
+  
+  .slider {
+    display: flex;
+    transition: transform 1s ease;
+  }
+  
+  /* Estilo para la foto dentro del marco */
+  .slide {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    transition: opacity 1s ease;
+  }
+  
+  /* Media query para dispositivos muy pequeños (teléfonos en modo retrato) */
+  @media (max-width: 480px) {
+    .marco {
+      width: 60vw; /* Aumenta el tamaño del marco en pantallas muy pequeñas */
+      height: 60vw; 
+    }
+  
+    .titulo h1 {
+      font-size: 9vw; /* Títulos más grandes en pantallas muy pequeñas */
+    }
+  
+    .titulo p {
+      font-size: 7vw; /* Párrafos más grandes en pantallas muy pequeñas */
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  /* Estilos para el título */
+  .titulo {
+    position: absolute;
+    top: 10%; /* Ajusta la posición vertical del título */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #5a8b9b; /* Azul claro */
+    font-family: 'Parisienne', cursive; /* Fuente Parisienne */
+  }
+  
+  .titulo h1 {
+    font-size: 3vw; /* Tamaño responsivo */
+    margin-bottom: 5px; /* Espacio entre el título y el mensaje */
+  }
+  
+  .titulo p {
+    font-size: 2.5vw; /* Aumentado el tamaño responsivo para móviles */
+  }
+  
+  /* Media query para dispositivos móviles */
+  @media (max-width: 768px) {
+    .titulo h1 {
+      font-size: 8vw; /* Tamaño más grande en móviles */
+      margin: 5px;
+    }
+  
+    .titulo p {
+      font-size: 7vw; /* Tamaño más grande en móviles */
+      margin: 5px;
+    }
+  }
+  
+  /* Media query para tabletas */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .titulo h1 {
+      font-size: 6.5vw; /* Tamaño intermedio en tabletas */
+    }
+  
+    .titulo p {
+      font-size: 4.5vw; /* Tamaño intermedio en tabletas */
+    }
+  }
+  
+  
+  
+  
+  
+  /* Estilo general para la sección del lugar */
+  .section {
+    /*margin-top: 150px; /* Agrega espacio en la parte superior */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #5a8b9b;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+    padding: 20px;
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para efecto flotante */
+    width: 80%; /* Ancho general para escritorio */
+    max-width: 600px;
+    margin: 60px auto 0 auto; /* Margen superior para espacio y centrado horizontal */
+    text-align: center;
+  }
+  
+  
+  /* Responsividad para el iframe del mapa */
+  .section iframe {
+    width: 100%; /* Ancho responsivo */
+    max-width: 550px;
+    height: auto;
+    border: 0;
+    border-radius: 10px; /* Bordes redondeados */
+  }
+  
+  /* Ajustes para móviles */
+  @media (max-width: 768px) {
+    .section {
+      width: 90%; /* Más ancho en móviles */
+      padding: 15px;
+      font-size: 1rem;
+    }
+  
+    .section h3 {
+      font-size: 1.5rem; /* Aumentar el tamaño en móviles */
+      margin-bottom: 10px;
+    }
+  
+    .section p {
+      font-size: 1.1rem;
+      margin: 0 10px;
+    }
+  
+    .section iframe {
+      max-width: 100%; /* El mapa ocupa todo el ancho en móviles */
+      height: 250px; /* Altura del mapa en móviles */
+    }
+  }
+  
+  /* Ajustes para tabletas */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .section {
+      width: 85%; /* Ancho ajustado para tabletas */
+      padding: 18px;
+      font-size: 1.2rem;
+    }
+  
+    .section h3 {
+      font-size: 1.8rem;
+    }
+  
+    .section p {
+      font-size: 1.2rem;
+      margin: 0 15px;
+    }
+  
+    .section iframe {
+      max-width: 90%;
+      height: 350px;
+    }
+  }
+  /* Estilos para mostrar el lugar */
+  #lugar.visible {
+    display: block; /* Mostrar la sección del lugar */
+    opacity: 2; /* Hacerlo visible */
+  }
+  
+  /* Responsividad del iframe */
+  .section iframe {
+    width: 90%; /* Ancho responsivo */
+    height: auto; /* Mantener proporciones */
+    max-width: 600px; /* Ancho máximo */
+    border: 0; /* Sin borde */
+  }
+  
+  /* Estilo para el efecto de brillo */
+  .bright-effect {
+    animation: brightness 0.8s forwards;
+  }
+  
+  @keyframes brightness {
+    from {
+        filter: brightness(0);
+    }
+    to {
+        filter: brightness(1);
+    }
+  }
+  
+  /* Estilo para la tarjeta */
+  .tarjeta {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    z-index: 2; /* Asegúrate de que esté por encima de la imagen de fondo */
+  }
+  /* Estilo para el título de la sección del lugar */
+  .section h3 {
+    font-size: 1.2rem; /* Tamaño de fuente para escritorio */
+    color: #5a8b9b; /* Color del texto */
+    text-align: center; /* Centrar el texto */
+    margin-bottom: 10px; /* Espacio inferior */
+    text-transform: uppercase; /* Convertir a mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+  }
+  
+  /* Estilo para el párrafo de la sección del lugar */
+  .section p {
+    font-size: 2.2rem; /* Tamaño de fuente para escritorio */
+    color: #333; /* Color del texto */
+    text-align: center; /* Centrar el texto */
+    margin: 0 20px; /* Margen lateral */
+    line-height: 1.6; /* Altura de línea para mejor legibilidad */
+  }
+  
+  /* Responsividad */
+  @media (max-width: 768px) {
+    .section h3 {
+        font-size: 1.0rem; /* Tamaño de fuente más pequeño en móviles */
+    }
+  
+    .section p {
+        font-size: 1rem; /* Tamaño de fuente más pequeño en móviles */
+        margin: 0 10px; /* Margen lateral reducido */
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .section h3 {
+        font-size: 1.0rem; /* Tamaño intermedio en tabletas */
+    }
+  
+    .section p {
+        font-size: 1.1rem; /* Tamaño intermedio en tabletas */
+    }
+  }
+  
+  /* Animación de desvanecimiento */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  
+  /* Estilo general para la nueva sección de información */
+  /* Estilo para la nueva sección */
+  .event-info {
+    color: #5a8b9b; /* Mismo color que la sección del lugar */
+    font-family: 'Parisienne', cursive; /* Mismo tipo de letra que la sección del lugar */
+    margin-top: 50px; /* Espaciado superior */
+    text-align: center; /* Centrar el texto */
+  }
+  
+  /* Ajustes para los párrafos en .event-info */
+  .event-info p {
+    font-size: 2.5rem; /* Tamaño de fuente para escritorio, igual al de la sección */
+    margin: 0 20px; /* Margen lateral */
+    line-height: 1.6; /* Altura de línea para mejor legibilidad */
+  }
+  
+  /* Responsividad */
+  @media (max-width: 768px) {
+    .event-info p {
+        font-size: 1.5rem; /* Tamaño de fuente más pequeño en móviles */
+    }
+  }
+  /* Estilo para la sección de vestuario */
+  #vestuario {
+    display: none; /* Ocultar la sección de vestuario inicialmente */
+    opacity: 0; /* Asegurarse de que no sea visible */
+    transition: opacity 0.5s; /* Transición suave */
+    color: #5a8b9b; /* Mismo color */
+    font-family: 'Parisienne', cursive; /* Mismo tipo de letra */
+    text-align: center; /* Centrar el texto */
+    margin-top: 80px;
+  }
+  
+  #vestuario p {
+    font-size: 2.2rem;
+    line-height: 1.6;
+    margin: 10px 20px;
+  }
+  
+  /* Responsividad */
+  @media (max-width: 768px) {
+    #vestuario p {
+        font-size: 1.5rem; /* Tamaño de fuente más pequeño en dispositivos móviles */
+    }
+  }
+  /* Ajustes para la imagen de vestuario */
+  .imagen-vestuario {
+    width: 100%;        /* Ocupa el ancho completo del contenedor */
+    height: auto;       /* Mantiene la proporción de la imagen */
+    max-width: 400px;   /* Limita el ancho máximo para dispositivos grandes */
+    display: block;     /* Asegura que sea un bloque y no cause desbordamiento */
+    margin: 15px auto;  /* Centra la imagen y añade espacio superior e inferior */
+  }
+  
+  /* Ajustes responsivos */
+  @media (max-width: 768px) {
+    .imagen-vestuario {
+        max-width: 90%; /* Limita aún más el ancho en pantallas medianas */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .imagen-vestuario {
+        max-width: 100%; /* Asegura que la imagen se ajuste a pantallas pequeñas */
+    }
+  }
+  
+  /* Ajuste para que el contenedor de vestuario no desborde */
+  #vestuario {
+    padding: 20px;      /* Añade padding para dar espacio alrededor de la imagen */
+    text-align: center; /* Centra el texto y la imagen dentro de la sección */
+  }
+  
